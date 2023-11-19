@@ -12,6 +12,10 @@ public abstract class User {
         return firstName;
     }
 
+    public String getName() {
+        return firstName;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

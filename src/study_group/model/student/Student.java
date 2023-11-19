@@ -5,7 +5,7 @@ import study_group.model.user.User;
 
 import java.time.LocalDate;
 
-public class Student extends User implements Comparable<Student> {
+public class Student extends User implements Comparable<Student>, GroupItem {
     private final int studentId;
 
     public Student(int studentId, String firstName, String secondName, LocalDate birthDate, int age) {
