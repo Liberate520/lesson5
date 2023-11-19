@@ -19,6 +19,12 @@ public class Presenter {
         getStudentsListInfo();
     }
 
+    public void addTeacher(String name, int age) {
+        service.addTeacher(name, age);
+        //какой-то ответ
+        getStudentsListInfo();
+    }
+
     public void getStudentsListInfo() {
         String info = service.getStudentsInfo();
         view.printAnswer(info);
