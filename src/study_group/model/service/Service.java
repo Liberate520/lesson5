@@ -8,7 +8,7 @@ import study_group.model.teacher.Teacher;
 public class Service {
     private int idStudent;
     private int idTeacher;
-    private final StudyGroup<Student> group;
+    private final StudyGroup<Student, Teacher> group;
 
     public Service() {
         group = new StudyGroup<>();
@@ -22,6 +22,13 @@ public class Service {
     public void addTeacher(String name, int age){
         Teacher teacher = new Teacher(idTeacher++, name, null, null, age);
         group.addTeacher(teacher);
+    }
+
+    public String getTeacherInfo() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Информация о преподавателе:\n");
+        stringBuilder.append(group.getTeacher().toString());
+        return stringBuilder.toString();
     }
 
     public String getStudentsInfo() {
