@@ -7,10 +7,10 @@ import java.util.Scanner;
 public class ConsoleUI implements View {
 
     private static final String INPUT_ERROR = "Вы ввели неверное значение";
-    private Scanner scanner;
-    private Presenter presenter;
+    private final Scanner scanner;
+    private final Presenter presenter;
     private boolean work;
-    private MainMenu menu;
+    private final MainMenu menu;
 
     public ConsoleUI() {
         scanner = new Scanner(System.in);
@@ -50,6 +50,8 @@ public class ConsoleUI implements View {
         presenter.getStudentsListInfo();
     }
 
+    public void getTeacherInfo() { presenter.getTeacherInfo(); }
+
     public void addStudent() {
         System.out.println("Введите имя студента");
         String name = scanner.nextLine();
@@ -58,6 +60,16 @@ public class ConsoleUI implements View {
         //сделать проверку ввода возраста
         int age = Integer.parseInt(ageString);
         presenter.addStudent(name, age);
+    }
+
+    public void addTeacher() {
+        System.out.println("Введите имя преподавателя");
+        String name = scanner.nextLine();
+        System.out.println("Укажите возраст преподавателя");
+        String ageString = scanner.nextLine();
+        //сделать проверку ввода возраста
+        int age = Integer.parseInt(ageString);
+        presenter.addTeacher(name, age);
     }
 
     private void hello(){

@@ -1,39 +1,32 @@
 package study_group.model.student;
 
 import study_group.model.group.GroupItem;
+import study_group.model.user.User;
 
-public class Student implements Comparable<Student>, GroupItem {
-    private int id;
-    private String name;
-    private int age;
+import java.time.LocalDate;
 
-    public Student(int id, String name, int age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
+public class Student extends User implements Comparable<Student>, GroupItem {
+    private final int studentId;
+
+    public Student(int studentId, String firstName, String secondName, LocalDate birthDate, int age) {
+        this.studentId = studentId;
+        this.setFirstName(firstName);
+        this.setSecondName(secondName);
+        this.setBirthDay(birthDate);
+        this.setAge(age);
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
+                "id=" + studentId +
+                ", name='" + this.getFirstName() + '\'' +
+                ", age=" + this.getAge() +
                 '}';
     }
 
     @Override
-    public int getAge() {
-        return age;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
     public int compareTo(Student o) {
-        return name.compareTo(o.name);
+        return getFirstName().compareTo(o.getFirstName());
     }
 }
